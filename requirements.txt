@@ -1,0 +1,14 @@
+pandasai-sql[postgres]
+pandasai
+playwright
+jina
+jina[reader]
+bs4
+pandasai-litellm
+langchain_agentql
+langgraph
+langchain_experimental
+langserve
+mcp
+langchain-ollama
+langchain_mcp_adapters

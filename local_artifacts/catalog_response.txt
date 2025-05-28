@@ -1,0 +1,65 @@
+================================== Ai Message ==================================
+
+Based on the provided schema, here is a catalog of tables in this database:
+
+- **Album**: Contains information about music albums.
+  - `album_id`: Unique identifier for each album.
+  - `title`: Title of the album.
+  - `artist_id`: Foreign key referencing the artist who created the album.
+
+- **Artist**: Contains information about musicians or bands.
+  - `artist_id`: Unique identifier for each artist.
+  - `name`: Name of the artist.
+
+- **Customer**: Contains customer information.
+  - `customer_id`: Unique identifier for each customer.
+  - `first_name` and `last_name`: Customer's name.
+  - `company`, `address`, `city`, `state`, `country`, `postal_code`, `phone`, `fax`, `email`: Additional contact details.
+  - `support_rep_id`: Foreign key referencing the employee who supports this customer.
+
+- **Employee**: Contains information about employees in the company.
+  - `employee_id`: Unique identifier for each employee.
+  - `last_name` and `first_name`: Employee's name.
+  - `title`: Job title of the employee.
+  - `reports_to`: Foreign key referencing another employee who this one reports to.
+  - `birth_date`, `hire_date`: Birth and hire dates of the employee.
+  - `address`, `city`, `state`, `country`, `postal_code`, `phone`, `fax`, `email`: Contact details.
+
+- **Genre**: Contains information about music genres.
+  - `genre_id`: Unique identifier for each genre.
+  - `name`: Name of the genre.
+
+- **Invoice**: Contains information about invoices issued to customers.
+  - `invoice_id`: Unique identifier for each invoice.
+  - `customer_id`: Foreign key referencing the customer who received this invoice.
+  - `invoice_date`: Date when the invoice was issued.
+  - `billing_address`, `billing_city`, `billing_state`, `billing_country`, `billing_postal_code`: Details of where the bill should be sent.
+  - `total`: Total amount on the invoice.
+
+- **Invoice Line**: Contains details about each line item in an invoice.
+  - `invoice_line_id`: Unique identifier for each line item.
+  - `invoice_id`: Foreign key referencing the corresponding invoice.
+  - `track_id`: Foreign key referencing the track (music piece) being invoiced.
+  - `unit_price`: Price of one unit of the item on the invoice.
+  - `quantity`: Number of units purchased.
+
+- **Media Type**: Contains information about media types used for music tracks.
+  - `media_type_id`: Unique identifier for each media type.
+  - `name`: Name of the media type.
+
+- **Playlist**: Contains names and descriptions of playlists.
+  - `playlist_id`: Unique identifier for each playlist.
+  - `name`: Name of the playlist.
+
+- **Playlist Track**: Maps tracks to playlists.
+  - `playlist_id`: Foreign key referencing a playlist.
+  - `track_id`: Foreign key referencing a track.
+
+- **Track**: Contains detailed information about individual music tracks.
+  - `track_id`: Unique identifier for each track.
+  - `name`: Name of the track.
+  - `album_id`: Foreign key referencing the album containing this track.
+  - `media_type_id`: Foreign key referencing the media type used for this track.
+  - `genre_id`: Foreign key referencing the genre of music for this track.
+  - `composer`: Composer(s) of the track.
+  - `milliseconds`, `bytes`, `unit_price`: Technical and financial details related to the track.

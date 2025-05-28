@@ -1,0 +1,53 @@
+### Entities and Relationships
+
+1. **Album**:
+   - **Primary Key**: album_id
+   - **Attributes**: title, artist_id (Foreign Key referencing Artist)
+
+2. **Artist**:
+   - **Primary Key**: artist_id
+   - **Attribute**: name
+
+3. **Customer**:
+   - **Primary Key**: customer_id
+   - **Attributes**: first_name, last_name, company, address, city, state, country, postal_code, phone, fax, email, support_rep_id (Foreign Key referencing Employee)
+
+4. **Employee**:
+   - **Primary Key**: employee_id
+   - **Attributes**: last_name, first_name, title, reports_to (Foreign Key referencing Employee), birth_date, hire_date, address, city, state, country, postal_code, phone, fax, email
+
+5. **Genre**:
+   - **Primary Key**: genre_id
+   - **Attribute**: name
+
+6. **Invoice**:
+   - **Primary Key**: invoice_id
+   - **Attributes**: customer_id (Foreign Key referencing Customer), invoice_date, billing_address, billing_city, billing_state, billing_country, billing_postal_code, total
+
+7. **Invoice Line**:
+   - **Primary Key**: invoice_line_id
+   - **Attributes**: invoice_id (Foreign Key referencing Invoice), track_id (Foreign Key referencing Track), unit_price, quantity
+
+8. **Media Type**:
+   - **Primary Key**: media_type_id
+   - **Attribute**: name
+
+9. **Playlist**:
+   - **Primary Key**: playlist_id
+   - **Attributes**: name
+
+10. **Playlist Track**:
+    - **Primary Keys**: playlist_id, track_id (Composite Primary Key)
+    - **Foreign Keys**: playlist_id referencing Playlist, track_id referencing Track
+
+11. **Track**:
+    - **Primary Key**: track_id
+    - **Attributes**: name, album_id (Foreign Key referencing Album), media_type_id (Foreign Key referencing Media Type), genre_id (Foreign Key referencing Genre), composer, milliseconds, bytes, unit_price
+
+### Relationships:
+
+- An `Album` has one or more `Tracks`.
+- A `Track` is associated with a single `Album`.
+- A `Track` can belong to multiple `Playlists` through the `Playlist Track` entity.
+- A `Customer` can place multiple `Invoices`.
+- An `Invoice Line` is part of a specific `Invoice` and includes a particular `Track`.
