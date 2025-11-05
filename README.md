@@ -2,7 +2,7 @@
 
 **AI for the Data Engineer using Local LLMs**
 
-#### Setups:
+#### Sample data Setups:
 
 **Postgres**
 
